@@ -19,32 +19,21 @@ namespace Business.Concretes
             _productDal = productDal;
         }
 
-        public void Add(Product product)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Delete(Product product)
-        {
-            throw new NotImplementedException();
-        }
-
         public List<Product> GetAll()
         {
-           //İş kodları
-           //Yetkisi var mı?
-
+            //İş kodları
+            //Yetkisi var mı?
             return _productDal.GetAll();
         }
 
         public List<Product> GetAllByCategory(int categoryId)
         {
-            throw new NotImplementedException();
+            return _productDal.GetAll(p => p.CategoryId == categoryId);
         }
 
-        public void Update(Product product)
+        public List<Product> GetByUnitPrice(decimal min, decimal max)
         {
-            throw new NotImplementedException();
+            return _productDal.GetAll(p => p.UnitPrice >= min && p.UnitPrice <= max);
         }
     }
 }
