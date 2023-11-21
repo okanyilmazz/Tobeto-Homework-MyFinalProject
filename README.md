@@ -1,3 +1,3 @@
 # Tobeto-Homework-MyFinalProject
 
-The backend was created using the universally-used test database, Northwind database, and some tests were conducted
+The backend was built using the universally recognized test database **Northwind**, and various tests were conducted
