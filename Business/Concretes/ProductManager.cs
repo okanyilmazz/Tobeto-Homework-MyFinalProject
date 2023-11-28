@@ -31,7 +31,7 @@ namespace Business.Concretes
             ValidationTool.Validate(new ProductValidator(), product);
 
             //business codes 
-
+             
 
             _productDal.Add(product);
 
