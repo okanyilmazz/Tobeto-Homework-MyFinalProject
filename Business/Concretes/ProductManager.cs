@@ -1,10 +1,13 @@
 ﻿using Business.Abstracts;
 using Business.Constants;
+using Business.ValidationRules.FluentValidation;
+using Core.CrossCuttingConcerns.Validation;
 using Core.Utilities.Results;
 using DataAccess.Abstracts;
 using DataAccess.Concretes.InMemory;
 using Entities.Concretes;
 using Entities.DTOs;
+using FluentValidation;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,12 +27,11 @@ namespace Business.Concretes
 
         public IResult Add(Product product)
         {
-            //business codes
+            //validation
+            ValidationTool.Validate(new ProductValidator(), product);
 
-            if (product.ProductName.Length < 2)
-            {
-                return new ErrorResult(Messages.ProductNameInvalid);
-            }
+            //business codes 
+
 
             _productDal.Add(product);
 
